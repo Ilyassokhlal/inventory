@@ -18,15 +18,17 @@ def display_inventory():
         
         print(f"{'Item: ':<5} {instrument:<10} {'Price: $'} {info['price']:<10} {'Quantity: ':<5} {info['qty']:<3}")
 
-display_inventory()
-
 # Calculating the total and printing it
 
-total_inventory_value = sum(
-    item["price"]*float(item["qty"])
-    for item in inventory.values()
-)
-print(f"\nThe total inventory value: ${total_inventory_value}")
+    total_inventory_value = sum(
+        item["price"]*float(item["qty"])
+        for item in inventory.values()
+        )
+    print(f"\nThe total inventory value: ${total_inventory_value}")
+display_inventory()
+
+
+
 
 # Setting up user-search
 
@@ -101,6 +103,5 @@ except ValueError:
 for instrument, info in inventory.items():
     if info["qty"] <10:
         print(f"ALERT! {instrument} LOW STOCK")
-
 
 
